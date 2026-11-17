@@ -1,0 +1,91 @@
+/* Page d'essai du navigateur : lisible sur un petit écran, sans police ni image extérieure. */
+:root {
+  color-scheme: light;
+  --fond: #ffffff;
+  --texte: #14202b;
+  --discret: #4a5a68;
+  --trait: #c9d3dc;
+  --bleu: #1f4e79;
+  --vert: #136c2e;
+  --rouge: #a3231a;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 20px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.35;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem 0.8rem 3rem;
+}
+
+h1 { font-size: 1.6rem; margin: 0; }
+h2 { font-size: 1.2rem; margin: 1.8rem 0 0.4rem; color: var(--bleu); }
+p { margin: 0.5rem 0; }
+.sous-titre { color: var(--discret); margin-top: 0.1rem; }
+.note { color: var(--discret); font-size: 0.85rem; }
+code { font-family: ui-monospace, Consolas, monospace; font-size: 0.75rem; color: var(--discret); display: block; }
+
+/* Une ligne par constat : le libellé à gauche, la réponse en gros à droite. */
+.constats { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--trait); }
+.constats li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2rem 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 2px solid var(--trait);
+}
+.quoi { flex: 1 1 9rem; }
+.constats strong { font-size: 1.25rem; text-align: right; overflow-wrap: anywhere; max-width: 100%; margin-left: auto; }
+.constats small { display: block; font-size: 0.8rem; font-weight: 400; }
+.oui { color: var(--vert); }
+.non { color: var(--rouge); }
+.info { color: var(--texte); }
+.attente { color: var(--discret); }
+
+button {
+  display: block;
+  width: 100%;
+  min-height: 3.2rem;
+  margin: 0.6rem 0;
+  padding: 0.6rem 1rem;
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--bleu);
+  border: 0;
+  border-radius: 0.6rem;
+}
+button:disabled { opacity: 0.55; }
+button:focus-visible, textarea:focus-visible { outline: 3px solid #e0a100; outline-offset: 2px; }
+
+.message { min-height: 1.4rem; font-weight: 700; }
+.alerte { padding: 0.6rem; border: 2px solid var(--rouge); color: var(--rouge); font-weight: 700; }
+
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--texte);
+  background: #f3f6f9;
+  border: 2px solid var(--trait);
+  border-radius: 0.4rem;
+  resize: vertical;
+}
+
+[hidden] { display: none !important; }

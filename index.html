@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Le navigateur lui-même interdit tout échange avec un autre hôte que celui de la page. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#1f4e79">
+<title>Essai du navigateur</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icone-180.png">
+<link rel="stylesheet" href="essai.css">
+</head>
+<body>
+<main>
+  <h1>Essai du navigateur</h1>
+  <p class="sous-titre">Essai n° 0 · page version <span id="version">?</span></p>
+
+  <p id="sans-script" class="alerte">Le script de la page ne s'est pas lancé : aucun constat n'est possible. Rechargez la page ; si ce message reste, signalez-le.</p>
+
+  <h2>Ce que ce navigateur sait faire</h2>
+  <ul class="constats">
+    <li><span class="quoi">Installée (ouverte depuis l'icône)</span><strong id="v-installee" class="attente">…</strong></li>
+    <li><span class="quoi">Port série <code>navigator.serial</code></span><strong id="v-serie" class="attente">…</strong></li>
+    <li><span class="quoi">Bluetooth <code>navigator.bluetooth</code></span><strong id="v-bluetooth" class="attente">…</strong></li>
+    <li><span class="quoi">USB <code>navigator.usb</code></span><strong id="v-usb" class="attente">…</strong></li>
+    <li><span class="quoi">Stockage durable accordé <code>navigator.storage.persist()</code></span><strong id="v-durable" class="attente">…</strong></li>
+    <li><span class="quoi">Quota de stockage estimé</span><strong id="v-quota" class="attente">…</strong></li>
+    <li><span class="quoi">Navigateur</span><strong id="v-navigateur" class="attente">…</strong></li>
+    <li><span class="quoi">Système</span><strong id="v-systeme" class="attente">…</strong></li>
+    <li><span class="quoi">Connexion sécurisée (HTTPS)</span><strong id="v-securise" class="attente">…</strong></li>
+  </ul>
+
+  <h2>Sans Internet</h2>
+  <ul class="constats">
+    <li><span class="quoi">Service Worker</span><strong id="v-sw" class="attente">…</strong></li>
+    <li><span class="quoi">Prête pour le hors-ligne</span><strong id="v-horsligne" class="attente">…</strong></li>
+    <li><span class="quoi">Réseau en ce moment</span><strong id="v-reseau" class="attente">…</strong></li>
+  </ul>
+
+  <h2>Essai d'écriture</h2>
+  <p>Chaque appui écrit une ligne dans la mémoire de l'appareil (IndexedDB). Fermez la page, rouvrez-la : le nombre de lignes doit être le même.</p>
+  <button type="button" id="bouton-ecrire">Écrire une ligne</button>
+  <p id="message-ecrire" class="message" role="status" aria-live="polite"></p>
+  <ul class="constats">
+    <li><span class="quoi">Lignes écrites</span><strong id="v-nombre" class="attente">…</strong></li>
+    <li><span class="quoi">Première ligne</span><strong id="v-premiere" class="attente">…</strong></li>
+    <li><span class="quoi">Dernière ligne</span><strong id="v-derniere" class="attente">…</strong></li>
+  </ul>
+
+  <h2>Résultat à renvoyer</h2>
+  <button type="button" id="bouton-copier">Copier le résultat</button>
+  <p id="message-copier" class="message" role="status" aria-live="polite"></p>
+  <textarea id="resultat" readonly rows="20" aria-label="Texte du résultat"></textarea>
+  <p class="note">Ce texte ne contient ni nom, ni adresse, ni position, ni modèle d'appareil. Rien n'est envoyé : c'est vous qui le collez dans votre message.</p>
+</main>
+<script src="essai.js"></script>
+</body>
+</html>
